@@ -48,7 +48,7 @@ const TodoList = React.forwardRef((props, ref) => {
       setLoadingData(false);
     };
     loadingTodo(fetchData);
-  }, []);
+  }, [dispatch]);
   return (
     <div className={`${theme}`}>
       {loadingData ? <p className="loading">Loading todo...</p> : ""}

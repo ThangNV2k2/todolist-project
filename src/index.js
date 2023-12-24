@@ -5,18 +5,17 @@ import App from "./App";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import { ThemeProvider } from "./components/Theme/ThemeContext";
-import router from "./routers/rootRouter";
+import RootRouter from "./routers/rootRouter";
 import reportWebVitals from "./reportWebVitals";
-import { RouterProvider } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider>
-        <RouterProvider router={router}>
+        <RootRouter>
           <App />
-        </RouterProvider>
+        </RootRouter>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>

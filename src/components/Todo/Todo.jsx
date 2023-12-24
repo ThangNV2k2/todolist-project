@@ -49,18 +49,12 @@ function Todo(props) {
     }
   };
   const changeIsCompleted = () => {
-    debugger;
     const editTodo = {
       id: todo.id,
       content: todo.content,
       isCompleted: !todo.isCompleted,
     };
     dispatch({ type: EDIT_TODO_ITEM, payload: editTodo });
-  };
-  const editTodo = () => {
-    // setTimeout(() => {
-    //   updateRef.current.changeUpdate(todo.id, todo.content);
-    // }, 1000);
   };
   return (
     <li className="todo-item">
@@ -106,9 +100,10 @@ function Todo(props) {
                 <Route path="/header" element={<HeaderWrapper />} />
               </Routes>
 
-              <Link to="/header">
+              <Link
+                to={`/header/${todo.id}/${encodeURIComponent(todo.content)}`}
+              >
                 <EditOutlined
-                  onClick={editTodo}
                   style={{
                     fontSize: "24px",
                     padding: "6px 4px",
