@@ -4,6 +4,7 @@ import "./Footer.css";
 import { useDispatch, useSelector } from "react-redux";
 import { DELETE_TODO_ITEM } from "../../redux/task";
 import { ThemeContext } from "../Theme/ThemeContext";
+import { Button } from "antd";
 
 function Footer(props) {
   const { theme } = useContext(ThemeContext);
@@ -33,32 +34,36 @@ function Footer(props) {
         <div className="Footer--left">
           <p>{cntTodo} items left</p>
           <div className="btns">
-            <button
+            <Button
               className={`btn ${myOption === options.All ? "act" : ""}`}
               onClick={() => setMyOption(options.All)}
             >
               All
-            </button>
-            <button
+            </Button>
+            <Button
               className={`btn ${myOption === options.Active ? "act" : ""}`}
               onClick={() => setMyOption(options.Active)}
             >
               Active
-            </button>
-            <button
+            </Button>
+            <Button
               className={`btn ${myOption === options.Completed ? "act" : ""}`}
               onClick={() => setMyOption(options.Completed)}
             >
               Completed
-            </button>
+            </Button>
           </div>
         </div>
       )}
       <div className="Footer--right">
         {todoList.length - cntTodo > 0 && (
-          <button className="clearBtn" onClick={deleteAllCompleted}>
+          <Button
+            type="ghost"
+            className="clearBtn"
+            onClick={deleteAllCompleted}
+          >
             Clear completed
-          </button>
+          </Button>
         )}
       </div>
     </div>
